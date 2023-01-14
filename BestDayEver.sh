@@ -1,7 +1,17 @@
 #! /usr/bin/zsh
 
-echo "Good Morning !!"
+# echo "What is your name?"
+
+name=$1
+
+user=$(whoami)
+date=$(date)
+yourdir=$(pwd)
+
+echo "Good Morning $name !!"
 sleep 1
-echo "You are fat !!"
+echo "logged in as $user"
 sleep 1
-echo "Go to gym !!"
+echo "Today is $date"
+sleep 1
+echo "your working dir is $yourdir"
