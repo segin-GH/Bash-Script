@@ -1,2 +1,4 @@
-# Bash-Script
-bash
+# Shell-Script
+
+
+ -- zsh
