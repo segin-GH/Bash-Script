@@ -1,6 +1,7 @@
 #! /usr/bin/zsh
 
 getrich=$(($RANDOM % 14))
+
 echo "What is your name"
 read name
 echo "what is your age"
