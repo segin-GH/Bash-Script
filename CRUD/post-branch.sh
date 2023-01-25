@@ -13,12 +13,17 @@ cur_branch=$(git rev-parse --abbrev-ref HEAD)
 
 line_found=$(awk -v b="$cur_branch" '$0 ~ b { print NR }' version.txt)
 
-echo $line_found
+# echo $line_found
 
-if [ -z "$line_found" ] ; then
-    exit
+ver_num=0
+
+if [ -z "$line_found" ]; then
+    printf "$cur_branch $ver_num \n" > version.txt.tmp
+    cat version.txt >> version.txt.tmp
+    mv version.txt.tmp version.txt
+
 else
-    echo "some metadata available"
+    
 fi
 
 cur_branch=$(git rev-parse --abbrev-ref HEAD)
