@@ -11,12 +11,14 @@ fi
 
 cur_branch=$(git rev-parse --abbrev-ref HEAD)
 
-line_found=$(awk '$cur_branch { print NR }' version.txt)
+line_found=$(awk -v b="$cur_branch" '$0 ~ b { print NR }' version.txt)
 
-if [ $line_found > 1 ]; then
-    echo "some metadata available"
-else
+echo $line_found
+
+if [ -z "$line_found" ] ; then
     exit
+else
+    echo "some metadata available"
 fi
 
 cur_branch=$(git rev-parse --abbrev-ref HEAD)
