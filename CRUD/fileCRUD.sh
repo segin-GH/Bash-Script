@@ -18,7 +18,7 @@ fi
 cur_branch=$(git rev-parse --abbrev-ref HEAD)
 
 # check for metadata
-line_found=$(awk '$cur_branch { print NR }' version.txt)
+line_found=$(awk -v b="$cur_branch" '$0 ~ b { print NR }' version.txt)
 
 # echo "$line_found line found"
 cur_version=$(awk -v l="$line_found" 'NR==l { print $2; exit }' version.txt)
