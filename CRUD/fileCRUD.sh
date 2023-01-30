@@ -6,12 +6,15 @@ func_read_from_file(){
     done < version.txt
 }
 
+echo "=================================================="
+
+echo "Triggerd HOOk"
 if [ -e version.txt ]; then
-    echo "Version.txt file already Exists"
+    # echo "Version.txt file already Exists"
 else
-    echo "File does not Exists Creating.."
+    # echo "File does not Exists Creating.."
     touch version.txt
-    echo "Created a file called version.txt"
+    # echo "Created a file called version.txt"
 fi
 
 # get current branch name
@@ -35,4 +38,6 @@ if [ "$(tail -c 1 version.txt)" != "" ]; then
 fi
 
 
-func_read_from_file 
+# func_read_from_file 
+
+echo "=================================================="

@@ -12,6 +12,7 @@ func_read_from_file(){
     done < version.txt
 }
 
+echo "=================================================="
 
 if [ -e version.txt ]; then
     echo "Version.txt file already Exists"
@@ -35,4 +36,6 @@ if [ -z "$line_found" ]; then
     mv version.txt.tmp version.txt
 fi
 
-func_read_from_file
+# func_read_from_file
+
+echo "=================================================="
