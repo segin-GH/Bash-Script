@@ -7,7 +7,9 @@ func_read_from_file(){
             echo "Branch $branch_name is available"
         else
             echo "Branch $branch_name is not available"
+            branch_name="${branch_name//\//\\/}"
             sed -i "/$branch_name/d" version.txt
+
         fi
     done < version.txt
 }
@@ -36,6 +38,6 @@ if [ -z "$line_found" ]; then
     mv version.txt.tmp version.txt
 fi
 
-# func_read_from_file
+func_read_from_file
 
 echo "=================================================="

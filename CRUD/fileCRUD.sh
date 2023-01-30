@@ -30,7 +30,8 @@ cur_version=$(awk -v l="$line_found" 'NR==l { print $2; exit }' version.txt)
 cur_version=$(($cur_version + 1))
 
 # echo "$cur_version"
-sed -i "$line_found s/.*/$cur_branch $cur_version/" version.txt
+sed -i "$line_found s/.*/$(echo $cur_branch | sed 's/\//\\\//g') $cur_version/" version.txt
+
 
 
 if [ "$(tail -c 1 version.txt)" != "" ]; then
