@@ -11,6 +11,11 @@ git_commit() {
         return 1
     fi
 
+    if [ $# -gt 2 ]; then
+        echo "Too many arguments baka! :("
+        return 1
+    fi
+
     echo "Committing $1 with message $2 :)"
     git commit "$1" -m "$2"
     return 0
